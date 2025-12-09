@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+<body>
+  <input type="text" id="searchBar" placeholder="Search games..." onkeyup="filterGames()" style="width: 300px; padding: 10px; margin: 20px auto; display: block;">
+  <table id="gameTable">
+  <tr>
+
+ <tr>
+    <td class="game" data-name="Basket Random">
+        <a href="Games/Basket Random.html" class="game-container">
+            <img src="Game Logos/Basket Random.png" alt="Basket Random" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Basket Random</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Bloxorz">
+        <a href="Games/Bloxorz.html" class="game-container">
+            <img src="Game Logos/Bloxorz.png" alt="Bloxorz" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Bloxorz</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Crazy Cattle 3D">
+        <a href="Games/Crazy Cattle 3D.html" class="game-container">
+            <img src="Game Logos/Crazy Cattle 3D.png" alt="Crazy Cattle 3D" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Crazy Cattle 3D</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle School 1">
+        <a href="Games/Riddle School 1.html" class="game-container">
+            <img src="Game Logos/Riddle School 1.png" alt="Riddle School 1" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle School 1</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle School 2">
+        <a href="Games/Riddle School 2.html" class="game-container">
+            <img src="Game Logos/Riddle School 2.png" alt="Riddle School 2" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle School 2</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle School 3">
+        <a href="Games/Riddle School 3.html" class="game-container">
+            <img src="Game Logos/Riddle School 3.png" alt="Riddle School 3" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle School 3</div>
+        </a>
+    </td>
+ </tr>
+
+ <tr>
+    <td class="game" data-name="Riddle School 4">
+        <a href="Games/Riddle School 4.html" class="game-container">
+            <img src="Game Logos/Riddle School 4.png" alt="Riddle School 4" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle School 4</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle School 5">
+        <a href="Games/Riddle School 5.html" class="game-container">
+            <img src="Game Logos/Riddle School 5.png" alt="Riddle School 5" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle School 5</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle Transfer 1">
+        <a href="Games/Riddle Transfer 1.html" class="game-container">
+            <img src="Game Logos/Riddle Transfer 1.png" alt="Riddle Transfer 1" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle Transfer 1</div>
+        </a>
+    </td>
+
+    <td class="game" data-name="Riddle Transfer 2">
+        <a href="Games/Riddle Transfer 2.html" class="game-container">
+            <img src="Game Logos/Riddle Transfer 2.png" alt="Riddle Transfer 2" height="300" width="300" class="game-logo"><br>
+            <div class="game-link">Riddle Transfer 2</div>
+        </a>
+    </td>
+    </tr>
+    
+    <script>
+    const allGames = Array.from(document.querySelectorAll("td.game"));
+    const table = document.getElementById("gameTable");
+
+    // helper to rebuild rows of 6
+    function rebuildTable(cells) {
+     table.innerHTML = "";
+     for (let i = 0; i < cells.length; i += 6) {
+       const row = document.createElement("tr");
+       cells.slice(i, i + 6).forEach(cell => {
+         row.appendChild(cell.cloneNode(true));
+       });
+       table.appendChild(row);
+     }
+    }
+
+    function filterGames() {
+     const input = document.getElementById("searchBar").value.toLowerCase();
+
+     if (input === "") {
+        // reset to original full set
+        rebuildTable(allGames);
+        return;
+    }
+
+    // only keep matches
+  const matches = allGames.filter(game =>
+    game.getAttribute("data-name").toLowerCase().startsWith(input)
+  );
+
+  // rebuild table with matches only
+  rebuildTable(matches);
+    }
+    </script>
+
+
+    </table>
+
+</body>
+</html>

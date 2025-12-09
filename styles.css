@@ -1,0 +1,72 @@
+h1 {
+    color: rgb(163, 136, 189);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+p.subhead {
+    color: rgb(201, 201, 201);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+p.link {
+    color: rgb(120, 180, 240);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(7, 7, 7);
+}
+
+.game-link {
+  background-color: rgb(82, 120, 68);
+  color: white;
+  text-align: center;
+    font-family: Arial, sans-serif;
+  width: 300px;
+  height: 50px;        /* fixed box height */
+  line-height: 30px;   /* keeps text vertically centered */
+  padding-top: 20px;  /* adjusts for line-height */
+  border-radius: 5px;
+  margin: -5px auto 0 auto; /* scoots the box upward */
+  border: 3px solid rgb(122, 187, 122);
+}
+
+.game-logo {
+border-radius: 10px;
+overflow: hidden;
+border: 3px solid rgb(122, 187, 122);
+}
+
+.game-container {
+  display: inline-block;      /* keeps it sized to content */
+  transition: transform 0.2s; /* smooth animation */
+}
+
+.game-container:hover {
+  transform: scale(1.1);
+}
+
+
+.game-row {
+  display: flex;
+  justify-content: space-between; /* even spacing */
+  flex-wrap: wrap;                /* allows wrapping if needed */
+  padding: 0 20px;                /* optional side padding */
+}
+
+.game {
+  width: 15%;                     /* 6 items = ~15% each with spacing */
+  min-width: 150px;               /* prevents shrinking too small */
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;   /* removes underline */
+  color: inherit;          /* uses parent color */
+}
+
+
+
